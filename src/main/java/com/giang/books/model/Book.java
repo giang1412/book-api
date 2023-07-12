@@ -1,47 +1,34 @@
 package com.giang.books.model;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import org.antlr.v4.runtime.misc.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity(name = "Book")
+@Entity
+@Getter
+@Setter
 @AllArgsConstructor
 public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String title;
+    @NotNull
     private String author;
+    @NotNull
+    private Double price;
+    @NotNull
+    private String img;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
+    @ManyToOne
+    @NotNull
+    @JoinColumn(name = "category_id")
+    private Category category;
     public Book() {}
 
     public Book(String title, String author) {
