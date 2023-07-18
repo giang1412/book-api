@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.util.Date;
+
 @Entity
 @Getter
 @Setter
@@ -23,7 +25,10 @@ public class Book {
     private Double price;
     @NotNull
     private String img;
-
+    @NotNull
+    private String description;
+    @NotNull
+    private Date dateCreated;
 
     @ManyToOne
     @NotNull

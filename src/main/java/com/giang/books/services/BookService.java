@@ -22,4 +22,8 @@ public class BookService {
     public List<Book> getAllBooks(){
         return  bookRepository.findAll().stream().toList();
     }
+
+    public List<Book> getAllBooksSortedByDateCreated() {
+        return bookRepository.findAllOrderByDateCreatedDesc();
+    }
 }

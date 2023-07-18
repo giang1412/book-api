@@ -34,4 +34,13 @@ public class BookController {
             return ResponseEntity.ok().body("Empty");
         return ResponseEntity.ok().body(listBooks);
     }
+
+    @GetMapping("/book/getAll/sort")
+    public ResponseEntity<?> getAllBooksSort() {
+        List<Book> listBooks = new ArrayList<>(bookService.getAllBooksSortedByDateCreated());
+        if(listBooks.isEmpty())
+            return ResponseEntity.ok().body("Empty");
+        return ResponseEntity.ok().body(listBooks);
+    }
+
 }
