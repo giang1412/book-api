@@ -19,8 +19,10 @@ public class Book {
     private Long id;
     @NotNull
     private String title;
+    @ManyToOne
     @NotNull
-    private String author;
+    @JoinColumn(name = "author_id")
+    private Author author;
     @NotNull
     private Double price;
     @NotNull
@@ -34,10 +36,12 @@ public class Book {
     @NotNull
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToOne
+    @NotNull
+    @JoinColumn(name = "discount_id")
+    private Discount discount;
+
     public Book() {}
 
-    public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
-    }
 }
