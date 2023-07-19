@@ -26,4 +26,12 @@ public class BookService {
     public List<Book> getAllBooksSortedByDateCreated() {
         return bookRepository.findAllOrderByDateCreatedDesc();
     }
+
+    public Book getBookById(Long id) {
+        return bookRepository.findById(id).get();
+    }
+
+    public List<Book> getAllBooksByCategory(Long id_category){
+        return bookRepository.findByCategory_Id(id_category).stream().toList();
+    }
 }

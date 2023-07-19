@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -15,4 +16,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b FROM Book b ORDER BY b.dateCreated DESC")
     List<Book> findAllOrderByDateCreatedDesc();
+
+    List<Book> findByCategory_Id(Long id_category);
 }

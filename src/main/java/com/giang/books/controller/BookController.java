@@ -42,5 +42,20 @@ public class BookController {
             return ResponseEntity.ok().body("Empty");
         return ResponseEntity.ok().body(listBooks);
     }
+    @GetMapping("/book/{id}")
+    public ResponseEntity<?> getBookById(@PathVariable Long id) {
+        Book bookFinded = bookService.getBookById(id);
+        if(bookFinded == null)
+            return ResponseEntity.ok("Empty Book");
+        return ResponseEntity.ok().body(bookFinded);
+    }
+
+    @GetMapping("/book/getByCategory/{id}")
+    public ResponseEntity<?> getBookByCategoryId(@PathVariable Long id) {
+        List<Book> booksFinded = bookService.getAllBooksByCategory(id);
+        if(booksFinded == null)
+            return ResponseEntity.ok("Empty Book");
+        return ResponseEntity.ok().body(booksFinded);
+    }
 
 }
