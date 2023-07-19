@@ -1,4 +1,9 @@
 # syntax=docker/dockerfile:1
+
+RUN sudo apt-get update; \
+    sudo apt-get -y upgrade; \
+    sudo apt-get install -y gnupg2 wget lsb-release \
+
 FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR /app
