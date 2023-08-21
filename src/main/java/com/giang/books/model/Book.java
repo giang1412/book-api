@@ -43,5 +43,4 @@ public class Book {
     private Discount discount;
 
     public Book() {}
-
 }
